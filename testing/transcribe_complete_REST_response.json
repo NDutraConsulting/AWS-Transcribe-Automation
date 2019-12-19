@@ -1,0 +1,1 @@
+{"version":"0","id":"1fd08f11-f7e2-3e0a-48e7-0fddaab4cc1e","detail-type":"Transcribe Job State Change","source":"aws.transcribe","account":"384755050258","time":"2019-09-22T02:40:19Z","region":"us-east-2","resources":[],"detail":{"TranscriptionJobName":"haidsu","TranscriptionJobStatus":"COMPLETED"}}

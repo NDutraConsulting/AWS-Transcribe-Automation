@@ -1,0 +1,28 @@
+{"version":"0","id":"e1e72162-8b4a-b1ee-5f41-05e36fbad32b",
+  "detail-type":"AWS API Call via CloudTrail",
+  "source":"aws.s3","account":"384755050258",
+  "time":"2019-09-21T23:28:22Z",
+  "region":"us-east-2",
+  "resources":[],
+  "detail":{
+    "eventVersion":"1.05",
+    "userIdentity":{
+      "type":"IAMUser",
+      "principalId":"AIDAVTFJQE4JM4JD5TJOJ",
+      "arn":"arn:aws:iam::384755050258:user/student-machine",
+      "accountId":"384755050258","accessKeyId":"AKIAVTFJQE4JOJBHEKP5",
+      "userName":"student-machine"},
+    "eventTime":"2019-09-21T23:28:22Z",
+    "eventSource":"s3.amazonaws.com",
+    "eventName":"PutObject",
+    "awsRegion":"us-east-2",
+    "sourceIPAddress":"18.220.105.175",
+    "userAgent":"[aws-sdk-php/3.112.2 GuzzleHttp/6.3.3 curl/7.61.1 PHP/7.2.21]",
+
+    "requestParameters":{"bucketName":"new-jobs",
+      "Host":"new-jobs.s3.us-east-2.amazonaws.com",
+      "key":"t-2442.mp3"},
+      "responseElements":null,"additionalEventData":{"SignatureVersion":"SigV4","CipherSuite":"ECDHE-RSA-AES128-GCM-SHA256","bytesTransferredIn":420049,"AuthenticationMethod":"AuthHeader","x-amz-id-2":"ZmDDVVE4QNdqdDKpQVgPS62XEegjGwAZEMqLlzwp5oDuGQh b0E6nrZ4inWd7bGctFsFZwh2ltI=","bytesTransferredOut":0},"requestID":"B84BBCCCD70DBEDB","eventID":"1ca4e81e-f9bc-4fc4-a80c-2bcd61914834","readOnly":false,"resources":[{"type":"AWS::S3::Object","ARN":"arn:aws:s3:::new-jobs/t-2442.mp3"},{"accountId":"384755050258","type":"AWS::S3::Bucket","ARN":"arn:aws:s3:::new-jobs"}],"eventType":"AwsApiCall","recipientAccountId":"384755050258"}}
+
+
+$g->detail->requestParameters->key;
