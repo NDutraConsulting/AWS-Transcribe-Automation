@@ -6,7 +6,7 @@ class db_link{
 
 public static function open_link($database)
 {
-			 //Initialize Variables
+	//Initialize Variables
 	$dbname =  "thirdpla_studentux";
 	$user = "thirdpla_ux";
 	$pass = "V4b5KcbZ9[J.";
@@ -14,7 +14,7 @@ public static function open_link($database)
 
 	$link = mysqli_connect($host, $user, $pass, $dbname) or die("Error " . mysqli_error($link));
 
-return $link;
+	return $link;
 
 
 }
@@ -22,13 +22,13 @@ return $link;
 public static function open_con()
 {
 	$dbname =  "thirdpla_studentux";
- $user = "thirdpla_ux";
- $pass = "V4b5KcbZ9[J.";
- $host = "localhost";
+ 	$user = "thirdpla_ux";
+ 	$pass = "V4b5KcbZ9[J.";
+ 	$host = "localhost";
 
 	$mysqli = new mysqli($host, $user, $pass, $dbname);
 
-return $mysqli;
+	return $mysqli;
 
 
 }
