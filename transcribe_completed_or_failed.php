@@ -7,6 +7,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 }
 
+include_once "/home/thirdpla/public_html/studentux/php/pathways.php"; //Change for relative server
+include_once root_directory."text_manager/sentence_builder.php";
+
 require 'aws.phar';
 
 
@@ -30,7 +33,6 @@ if( isset($_POST['json']) ){
   exit();
 }
 
-
 //Decode Json
 $json = json_decode($json_string);
 
@@ -40,27 +42,22 @@ $status = $json->detail->TranscriptionJobStatus;
 //Initialize jobName
 $jobname = "";
 
-
 $out = $status."\n";
 $out .= "Details: ".$json_string."\n";
-
 
 //Check to see if the job is complete
 if( $status == "COMPLETED" ){
   $jobname = $json->detail->TranscriptionJobName;
+
 }else if( $status == "FAILED" ){
   $jobname = $json->detail->TranscriptionJobName;
-
   $out = "FAILED - Jobname: ".$jobname."\n";
-
   write_log_output($out);
-
   exit();
+
 }else{
   $out .= "invalid response.";
-
   write_log_output($out);
-
   exit();
 }
 
@@ -86,24 +83,20 @@ write_log_output("Success");
 write_log_output("New Job Finished");
 
 //Processing the response and storing it as sentences in MySQL
-/*
-include_once "/home/thirdpla/public_html/studentux/php/pathways.php";
-include_once root_directory."text_manager/sentence_builder.php";
-
 //Create new sentence_builder
 $sentence_builder = new sentence_builder();
 //parse and save
 $sentence_builder->parse_and_store($JSON);
 
-*/
 
 
-//FUNCTIONS
+
+/******************** FUNCTIONS ************************/
 
 function getOutputDirectory($jobname){
-
   return "json/";
 }
+
 
 //S3 getOperation
 function getTrascriptByBucketAndKey( $bucket, $key){
@@ -128,9 +121,9 @@ function getTrascriptByBucketAndKey( $bucket, $key){
   // Print the body of the result by indexing into the result object.
   return $result['Body'];
 
-
 }
 
+//Log the recieved output
 function write_log_output($string){
   $log_file = "log/log_transcribe_completed_or_failed.txt";
   $today = " - ".date("M,d,Y h:i:s A") ."- ";
@@ -139,11 +132,10 @@ function write_log_output($string){
   $txt = "\n[ ".$today.$string." ]";
   fwrite($myfile, $txt);
   fclose($myfile);
-
-  //file_put_contents($log_file, "\n[ ".$today.$string." ]", FILE_APPEND );
-
+  
 }
 
+/**** TEST INPUT FOR THIS FILE ****/
 function testJSON(){
   return '{"version":"0","id":"798d0a3a-e2ed-897c-9637-dbcf090a482b",
     "detail-type":"Transcribe Job State Change","source":"aws.transcribe",
