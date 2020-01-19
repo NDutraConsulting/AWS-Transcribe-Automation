@@ -11,7 +11,7 @@
 #               to manage updates needed when database standards change.
 #               EX: Inserts should bind data.
 #
-# Integration into NCANDA System : run from any file that needs it
+# Integration into Student UX System : run from any file that needs it
 #
 # Nikko Dutra Bouck
 # Updated: Nov 3rd 2018
