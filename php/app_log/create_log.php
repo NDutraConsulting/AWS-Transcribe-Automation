@@ -1,10 +1,6 @@
 <?php
 
-
-//include_once "/var/www/html/onehabitat.org/public_html/api/pathways.php";
 include_once "/home/thirdpla/trashroute.org/food/php/pathways.php";
-
-
 
 include_once MySQL_Adapter_GET_query_absolute_path;
 include_once MySQL_Adapter_UPDATE_query_absolute_path;
@@ -14,31 +10,16 @@ include_once MySQL_Adapter_UPDATE_query_absolute_path;
     public $actions, $wasSuccess;
 
     public function __construct(){
-
-
     }
 
     public function save($page_name){
 
       $DEBUG_ON = false;
 
-/*
-      if( isset( $_SESSION['municipality_id'] ) ){
-        $municipality_id = $_SESSION['municipality_id'];
-      }else{
-        if( $DEBUG_ON ){
-          echo "SESSION NOT SET</br>;";
-        }
-        return;
-      }*/
-
       $timelog = time();
       $dt = date('Y-m-d H:i:s', $timelog);
 
-
       $all_data['page_name'] = $page_name;
-
-
 
       foreach($_SESSION as $key => $value ){
         $all_data[$key] = $value;
@@ -63,7 +44,6 @@ include_once MySQL_Adapter_UPDATE_query_absolute_path;
       $sql = "INSERT INTO app_logs( log_id, actions, page_name,  dt )
                 values( '$log_id', '$actions', '$page_name', '$dt' );";
 
-
       if( $DEBUG_ON ){
         echo $sql."</br>";
       }
@@ -74,7 +54,6 @@ include_once MySQL_Adapter_UPDATE_query_absolute_path;
       $this->wasSuccess = $rv;
 
       $this->actions = $actions;
-
 
     }
 
