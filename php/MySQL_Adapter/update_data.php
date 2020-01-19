@@ -152,7 +152,7 @@ class update_data{
 	return $this->data;
 
 
-  } #End Run Query	
+  } #END run_query( $tablename, $set_parameters, $where_parameters )	
 
 
 
