@@ -7,9 +7,9 @@ class db_link{
 	public static function open_link($database)
 	{
 		//Initialize Variables
-		$dbname =  "thirdpla_studentux";
-		$user = "thirdpla_ux";
-		$pass = "V4b5KcbZ9[J.";
+		$dbname =  $database;			// Used for sharding databases 
+		$user = "YOUR USER NAME";		// Change these Values
+		$pass = "YOUR PASS"; 			// Change these Values
 		$host = "localhost";
 
 		$link = mysqli_connect($host, $user, $pass, $dbname) or die("Error " . mysqli_error($link));
@@ -21,15 +21,14 @@ class db_link{
 
 	public static function open_con()
 	{
-		$dbname =  "thirdpla_studentux";
-		$user = "thirdpla_ux";
-		$pass = "V4b5KcbZ9[J.";
-		$host = "localhost";
+		//Initialize Variables
+		$dbname =  "YOUR DATABASE NAME";	// Change these Values
+		$user = "YOUR USER NAME";		// Change these Values
+		$pass = "YOUR PASS"; 			// Change these Values
 
 		$mysqli = new mysqli($host, $user, $pass, $dbname);
 
 		return $mysqli;
-
 
 	}
 
